@@ -67,19 +67,13 @@ export class CarComponent implements OnInit {
   }
 
   getCurrentCarClass(car:Car){
-    if(car== this.currentCar){
+    if(car=== this.currentCar){
           return "table-danger"
     }
     else{
-      return "table-info"
+      return "table-dark"
     }
   }
- getAllCurrentCarClass(){
-   if(!this.currentCar){
-    return "table-danger"
-   }else{
-    return "table-info"
-   }
- }
+
 
 }
