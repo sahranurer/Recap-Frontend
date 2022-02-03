@@ -6,13 +6,17 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<ul class="list-group">
-  <li
-    routerLink="/cars/color/{{color.colorId}}"
-    (click)="setCurrentColor(color)"
-    *ngFor="let color of colors"
-    [class]="getCurrentColorClass(color)"
-  >
-    {{ color.colorName }}
-  </li>
-</ul>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Renk Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-primary">
+{{filterText}} aradınız
+</div>
+<select class="form-select" size="6" aria-label="size 10 select example">
+  <option  routerLink="/cars/color/{{color.colorId}}"
+  (click)="setCurrentColor(color)"
+  *ngFor="let color of colors |colorPipe:filterText"
+  [class]="getCurrentColorClass(color)"  > {{ color.colorName }}</option>
+
+</select>

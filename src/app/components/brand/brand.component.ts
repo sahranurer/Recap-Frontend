@@ -13,6 +13,7 @@ export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand:Brand;
   dataLoaded = false;
+  filterText="";
  
 
   constructor(private brandService:BrandService) {}
@@ -34,10 +35,10 @@ setCurrentBrand(brand:Brand){
 
 getCurrentBrandClass(brand:Brand){
   if(brand== this.currentBrand){
-        return "list-group-item active"
+        return " active"
   }
   else{
-    return "list-group-item"
+    return ""
   }
 }
 
